@@ -57,5 +57,16 @@
     -o-border-image: url(../img/bubble.png) 100 stretch; /* Opera 11-12.1 */
     border-image: url(../img/bubble.png) 100 stretch;
     box-shadow: none;
+    font-family: OswaldLight, serif;
+  }
+
+  font-family: OswaldExtraLight, serif;
+  font-size: 60px;
+
+  img.lang-embedded {
+    border: none;
+    width: 60px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }

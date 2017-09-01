@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>YOUR NAME HERE</title>
+		<title>Dart alive v2</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/white.css">
@@ -30,7 +30,12 @@
 				<section data-background-image="img/doom-bg.png">
 					<img src="img/logo.png" class="plain">
 				</section>
-				<section><img src="img/wrike-logo.png" class="plain" style="width: 300px"></section>
+				<section>
+					<img src="img/wrike-logo.png" class="plain" style="width: 300px;padding-bottom: 50px"><br>
+					<p class="fragment">2 000 000 строк js</p>
+					<p class="fragment">500 000 строк Dart</p>
+					<p class="fragment">50+ фронтенд разработчиков</p>
+				</section>
 				<section>
 					ссылка на голосование
 				</section>
@@ -40,12 +45,20 @@
                 <section>
                     <section>
                         <blockquote>
-                            Dart is an application programming language that’s easy to learn, easy to scale, and deployable everywhere.
+                            <img src="img/dart-logo.png" class="lang-embedded"> is an application programming language that’s easy to learn, easy to scale, and deployable everywhere.
 
-                            Google depends on Dart to make very large apps.
+                            Google depends on <img src="img/dart-logo.png" class="lang-embedded"> to make very large apps.
                         </blockquote>
                     </section>
+					<section>
+						<blockquote>
+							<img src="img/ts-logo.jpg" class="lang-embedded"> is an application programming language that’s easy to learn, easy to scale, and deployable everywhere.
+
+							Google depends on <img src="img/ts-logo.jpg" class="lang-embedded"> to make very large apps.
+						</blockquote>
+					</section>
                 </section>
+
 			</div>
 		</div>
 
@@ -63,7 +76,8 @@
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+				],
+				transition: 'fade'
 			});
 
             for (let slide of document.getElementsByTagName('section')){
