@@ -27,14 +27,25 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+				<section data-background-image="img/doom-bg.png">
+					<img src="img/logo.png" class="plain">
+				</section>
+				<section><img src="img/wrike-logo.png" class="plain" style="width: 300px"></section>
 				<section>
-					<h1 class="title">Dart... жив?</h1>
-					<img src="img/boxing-ring.jpg" class="plain">
+					ссылка на голосование
 				</section>
 
-				<section>
-					<h1 style="font-family: post_pixel-7regular">П0ПУЛЯРН0СТЬ</h1>
-				</section>
+                <section>график - дарт жив?</section>
+                <section>график - а вы на нём писали?</section>
+                <section>
+                    <section>
+                        <blockquote>
+                            Dart is an application programming language that’s easy to learn, easy to scale, and deployable everywhere.
+
+                            Google depends on Dart to make very large apps.
+                        </blockquote>
+                    </section>
+                </section>
 			</div>
 		</div>
 
@@ -54,6 +65,17 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+
+            for (let slide of document.getElementsByTagName('section')){
+                if (!(slide.getAttribute('data-background') ||
+                    slide.getAttribute('data-background-video') ||
+                    slide.getAttribute('data-background-color') ||
+                    slide.getAttribute('data-background-image') ||
+                    slide.getAttribute('data-background-iframe'))) {
+                    slide.setAttribute('data-background-image', 'img/bg.png');
+                    slide.setAttribute('data-background-size', 'cover');
+                }
+            }
 		</script>
 	</body>
 </html>
