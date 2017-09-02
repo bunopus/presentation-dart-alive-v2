@@ -31,10 +31,25 @@
 					<img src="img/logo.png" class="plain">
 				</section>
 				<section>
-					<img src="img/wrike-logo.png" class="plain" style="width: 300px;padding-bottom: 50px"><br>
-					<p class="fragment">2 000 000 строк js</p>
-					<p class="fragment">500 000 строк Dart</p>
-					<p class="fragment">50+ фронтенд разработчиков</p>
+					<section class="stretch">
+						<img src="img/wrike-logo.png" class="plain" style="width: 300px;padding-bottom: 50px"><br>
+						<div class="menu-item fragment" data-fragment-index="0">
+							<img src="img/skull.gif" class="skull fragment current-visible" data-fragment-index="0">
+							<img src="img/menu/50_devs.png" class="menu_text">
+						</div>
+						<div class="menu-item fragment" data-fragment-index="1">
+							<img src="img/skull.gif" class="skull fragment current-visible" data-fragment-index="1">
+							<img src="img/menu/10_years.png" class="menu_text">
+						</div>
+						<div class="menu-item fragment" data-fragment-index="2">
+							<img src="img/skull.gif" class="skull fragment current-visible" data-fragment-index="2">
+							<img src="img/menu/js.png" class="menu_text">
+						</div>
+						<div class="menu-item fragment" data-fragment-index="3">
+							<img src="img/skull.gif" class="skull fragment current-visible" data-fragment-index="3">
+							<img src="img/menu/dart.png" class="menu_text">
+						</div>
+					</section>
 				</section>
 				<section>
 					ссылка на голосование
@@ -77,7 +92,9 @@
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				],
-				transition: 'fade'
+				transition: 'fade',
+                minScale: 0.9,
+                maxScale: 1.5
 			});
 
             for (let slide of document.getElementsByTagName('section')){
