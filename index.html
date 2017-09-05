@@ -15,6 +15,8 @@
 		<link rel="stylesheet" href="css/custom.css">
 		<link rel="stylesheet" href="fonts/stylesheet.css">
 
+		<link rel="stylesheet" href="bower_components/chartist/dist/chartist.min.css">
+
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -54,30 +56,75 @@
 				<section>
 					ссылка на голосование
 				</section>
-
-                <section>график - дарт жив?</section>
-                <section>график - а вы на нём писали?</section>
-                <section>
-                    <section>
-                        <blockquote>
-                            <img src="img/dart-logo.png" class="lang-embedded"> is an application programming language that’s easy to learn, easy to scale, and deployable everywhere.
-
-                            Google depends on <img src="img/dart-logo.png" class="lang-embedded"> to make very large apps.
-                        </blockquote>
-                    </section>
-					<section>
-						<blockquote>
-							<img src="img/ts-logo.jpg" class="lang-embedded"> is an application programming language that’s easy to learn, easy to scale, and deployable everywhere.
-
-							Google depends on <img src="img/ts-logo.jpg" class="lang-embedded"> to make very large apps.
-						</blockquote>
-					</section>
-                </section>
 				<section>
 					<section>
 						<h1 class="title">I : Hype</h1>
 						<h3 class="subtitle">Knee-Deep in the Dead</h3>
 						<img src="img/demon.gif" style="width: 150px">
+					</section>
+                    <section>график - дарт жив?</section>
+                    <section>график - а вы на нём писали?</section>
+                        <section>
+                            <blockquote>
+                                <img src="img/dart-logo.png" class="lang-embedded"> is an application programming language that’s easy to learn, easy to scale, and deployable everywhere.
+
+                                Google depends on <img src="img/dart-logo.png" class="lang-embedded"> to make very large apps.
+                            </blockquote>
+                        </section>
+                        <section>
+                            <blockquote>
+                                <img src="img/ts-logo.jpg" class="lang-embedded"> is an application programming language that’s easy to learn, easy to scale, and deployable everywhere.
+
+                                Google depends on <img src="img/ts-logo.jpg" class="lang-embedded"> to make very large apps.
+                            </blockquote>
+                        </section>
+					<section>
+						<div class="chart" style="width: 1000px; height: 600px; font-size:16px">
+							<!--
+                                {
+                                  "initialize": "function(container) {
+                                    var chart = new Chartist.Line(container, {
+                                        series: [
+                                            {
+                                                name: 'series',
+                                                data: [
+                                                    {x: new Date(1323871554000), y: 5646},
+                                                    {x: new Date(1339074096000), y: 10687},
+                                                    {x: new Date(1352120480000), y: 17089},
+                                                    {x: new Date(1355317272000), y: 19107},
+                                                    {x: new Date(1371992615000), y: 33201},
+                                                    {x: new Date(1380200688000), y: 42129},
+                                                    {x: new Date(1397048682000), y: 68932},
+                                                    {x: new Date(1411995958000), y: 97084},
+                                                    {x: new Date(1436274103000), y: 162788},
+                                                    {x: new Date(1451998941000), y: 222830},
+                                                    {x: new Date(1461503024000), y: 266538},
+                                                    {x: new Date(1470834180000), y: 311065},
+                                                    {x: new Date(1478005312000), y: 347622},
+                                                    {x: new Date(1491424064000), y: 423219},
+                                                ]
+                                            }	
+                                        ]
+                                    }, {
+                                        axisX: {
+                                            type: Chartist.FixedScaleAxis,
+                                            divisor: 5,
+                                            labelInterpolationFnc: function (value) {
+                                                return moment(value).format('MMM YYYY');
+                                            },
+                                        },
+                                        axisY: {
+                                          labelInterpolationFnc: function(value) {
+                                            return value / 1000 + 'k';
+                                          }
+                                        },
+                                        chartPadding: 20
+                                    });
+                                   }"
+                                }
+                            -->
+						</div>
+
 					</section>
 				</section>
 				<section>
@@ -113,12 +160,25 @@
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
                 history: true,
+                anything: [
+                    {
+                        className: "chart",
+                        initialize: (function(container, options){
+                            if (options && options.initialize) {
+                                options.initialize(container)
+                            }
+                        })
+                    }],
                 dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				],
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/anything/anything.js' },
+                    { src:  'bower_components/chartist/dist/chartist.min.js' },
+                    { src:  'bower_components/moment/min/moment.min.js' }
+
+                ],
 				transition: 'fade',
                 minScale: 0.9,
                 maxScale: 1.5
@@ -134,6 +194,13 @@
                     slide.setAttribute('data-background-size', 'cover');
                 }
             }
+
+            Reveal.addEventListener( 'slidechanged', function( event ) {
+                var chart = event.currentSlide.querySelector('.chart');
+                if(chart && chart.__chartist__){
+                    chart.__chartist__.update();
+                }
+            } );
 		</script>
 	</body>
 </html>
