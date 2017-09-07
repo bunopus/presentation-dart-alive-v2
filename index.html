@@ -78,52 +78,9 @@
                                 Google depends on <img src="img/ts-logo.jpg" class="lang-embedded"> to make very large apps.
                             </blockquote>
                         </section>
-					<section>
-						<div class="chart" style="width: 1000px; height: 600px; font-size:16px">
-							<!--
-                                {
-                                  "initialize": "function(container) {
-                                    var chart = new Chartist.Line(container, {
-                                        series: [
-                                            {
-                                                name: 'series',
-                                                data: [
-                                                    {x: new Date(1323871554000), y: 5646},
-                                                    {x: new Date(1339074096000), y: 10687},
-                                                    {x: new Date(1352120480000), y: 17089},
-                                                    {x: new Date(1355317272000), y: 19107},
-                                                    {x: new Date(1371992615000), y: 33201},
-                                                    {x: new Date(1380200688000), y: 42129},
-                                                    {x: new Date(1397048682000), y: 68932},
-                                                    {x: new Date(1411995958000), y: 97084},
-                                                    {x: new Date(1436274103000), y: 162788},
-                                                    {x: new Date(1451998941000), y: 222830},
-                                                    {x: new Date(1461503024000), y: 266538},
-                                                    {x: new Date(1470834180000), y: 311065},
-                                                    {x: new Date(1478005312000), y: 347622},
-                                                    {x: new Date(1491424064000), y: 423219},
-                                                ]
-                                            }	
-                                        ]
-                                    }, {
-                                        axisX: {
-                                            type: Chartist.FixedScaleAxis,
-                                            divisor: 5,
-                                            labelInterpolationFnc: function (value) {
-                                                return moment(value).format('MMM YYYY');
-                                            },
-                                        },
-                                        axisY: {
-                                          labelInterpolationFnc: function(value) {
-                                            return value / 1000 + 'k';
-                                          }
-                                        },
-                                        chartPadding: 20
-                                    });
-                                   }"
-                                }
-                            -->
-						</div>
+					<section data-chart-popularity-1>
+						<div class="chart" style="width: 1000px; height: 600px; font-size:16px"></div>
+                        <div class="fragment" data-chart-popularity-2></div>
 
 					</section>
 				</section>
@@ -160,29 +117,88 @@
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
                 history: true,
-                anything: [
-                    {
-                        className: "chart",
-                        initialize: (function(container, options){
-                            if (options && options.initialize) {
-                                options.initialize(container)
-                            }
-                        })
-                    }],
                 dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    { src: 'plugin/anything/anything.js' },
-                    { src:  'bower_components/chartist/dist/chartist.min.js' },
-                    { src:  'bower_components/moment/min/moment.min.js' }
+                    {src: 'plugin/markdown/marked.js'},
+                    {src: 'plugin/markdown/markdown.js'},
+                    {src: 'plugin/notes/notes.js', async: true},
+                    {
+                        src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                        hljs.initHighlightingOnLoad();
+                    }
+                    },
+                    {src: 'bower_components/chartist/dist/chartist.min.js'},
+                    {src: 'bower_components/moment/min/moment.min.js'},
+                    {src: 'plugin/script-runner/script-runner.js'}
 
                 ],
-				transition: 'fade',
+                transition: 'fade',
                 minScale: 0.9,
-                maxScale: 1.5
-			});
+                maxScale: 1.5,
+                script_runner: {
+                    'data-chart-popularity-1': {
+                        'slidechanged': function (event) {
+                            var slide = event.currentSlide;
+                            var container = slide.getElementsByClassName('chart')[0];
+                            popularity_chart = Chartist.Line(container,{
+                                series: [
+                                    {
+                                        name: 'series',
+                                        data: [
+                                            {x: new Date(1323871554000), y: 5646},
+                                            {x: new Date(1339074096000), y: 10687},
+                                        ]
+                                    }
+                                ]
+                            }, {
+                                axisX: {
+                                    type: Chartist.FixedScaleAxis,
+                                    divisor: 5,
+                                    labelInterpolationFnc: function (value) {
+                                        return moment(value).format('MMM YYYY');
+                                    }
+                                },
+                                axisY: {
+                                    labelInterpolationFnc: function (value) {
+                                        return value / 1000 + 'k';
+                                    }
+                                },
+                                chartPadding: 20
+                            });
+                        }
+                    },
+                    'data-chart-popularity-2': {
+                        'fragmentshown': function () {
+                            popularity_chart.update({
+                                series: [
+                                    [
+                                        {x: new Date(1323871554000), y: 5646},
+                                        {x: new Date(1339074096000), y: 10687},
+                                    ],
+                                    [
+                                        {x: new Date(1323871554000), y: 344444345},
+                                        {x: new Date(1339074096000), y: 234434544},
+                                    ]
+
+                                ]
+                            }, {
+                                axisX: {
+                                    type: Chartist.FixedScaleAxis,
+                                    divisor: 5,
+                                    labelInterpolationFnc: function (value) {
+                                        return moment(value).format('MMM YYYY');
+                                    },
+                                },
+                                axisY: {
+                                    labelInterpolationFnc: function (value) {
+                                        return value / 1000 + 'k';
+                                    }
+                                },
+                                chartPadding: 20
+                            });
+                        }
+                    }
+                }
+            });
 
             for (let slide of document.getElementsByTagName('section')){
                 if (!(slide.getAttribute('data-background') ||
@@ -194,13 +210,6 @@
                     slide.setAttribute('data-background-size', 'cover');
                 }
             }
-
-            Reveal.addEventListener( 'slidechanged', function( event ) {
-                var chart = event.currentSlide.querySelector('.chart');
-                if(chart && chart.__chartist__){
-                    chart.__chartist__.update();
-                }
-            } );
 		</script>
 	</body>
 </html>
