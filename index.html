@@ -56,14 +56,22 @@
 				<section>
 					ссылка на голосование
 				</section>
+                <section>
+                    <section><h2>Дарт - жив?</h2></section>
+                    <section data-chart-live>
+                        <div class="chart pie-chart" style="width: 1000px; height: 600px; font-size:16px"></div>
+                    </section>
+                    <section data-chart-live-2>
+                        <div class="chart pie-chart" style="width: 1000px; height: 600px; font-size:16px"></div>
+                    </section>
+                </section>
+                <!--HYPE-->
 				<section>
 					<section>
 						<h1 class="title">I : Hype</h1>
 						<h3 class="subtitle">Knee-Deep in the Dead</h3>
 						<img src="img/demon.gif" style="width: 150px">
 					</section>
-                    <section>график - дарт жив?</section>
-                    <section>график - а вы на нём писали?</section>
                         <section>
                             <blockquote>
                                 <img src="img/dart-logo.png" class="lang-embedded"> is an application programming language that’s easy to learn, easy to scale, and deployable everywhere.
@@ -78,12 +86,11 @@
                                 Google depends on <img src="img/ts-logo.jpg" class="lang-embedded"> to make very large apps.
                             </blockquote>
                         </section>
-					<section data-chart-popularity-1>
-						<div class="chart" style="width: 1000px; height: 600px; font-size:16px"></div>
-                        <div class="fragment" data-chart-popularity-2></div>
-                        <div class="fragment" data-chart-popularity-3></div>
-
-					</section>
+                        <section data-chart-popularity-1>
+                            <div class="chart line-chart" style="width: 1000px; height: 600px; font-size:16px"></div>
+                            <div class="fragment" data-chart-popularity-2></div>
+                            <div class="fragment" data-chart-popularity-3></div>
+                        </section>
 				</section>
 				<section>
 					<section>
@@ -940,8 +947,39 @@
                                 }
                             });
                         }
+                    },
+                    'data-chart-live': {
+                        'slidechanged': function (event) {
+                            var slide = event.currentSlide;
+                            var container = slide.getElementsByClassName('chart')[0];
+                            container.innerHtml = "";
+                            var live_chart = new Chartist.Pie(container, {
+                                labels: ['Dart жив', 'Dart мёртв'],
+                                series: [2, 37]
+                            }, {
+                                showLabel: false,
+                                plugins: [
+                                    Chartist.plugins.legend()
+                                ]
+                            });
+                        }
+                    },
+                    'data-chart-live-2': {
+                        'slidechanged': function (event) {
+                            var slide = event.currentSlide;
+                            var container = slide.getElementsByClassName('chart')[0];
+                            container.innerHtml = "";
+                            new Chartist.Pie(container, {
+                                labels: ['Писал на Dart', 'Написал Hello World', 'Ни строчки'],
+                                series: [2, 4, 29]
+                            }, {
+                                showLabel: false,
+                                plugins: [
+                                    Chartist.plugins.legend()
+                                ]
+                            });
+                        }
                     }
-
                 }
             });
 

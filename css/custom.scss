@@ -52,9 +52,16 @@
   }
 
   h3.subtitle {
-    font-family: OswaldExtraLight, serif, serif;
+    font-family: OswaldExtraLight, serif;
     font-size: 0.7em;
     font-style: italic;
+  }
+
+  h2 {
+    font-family: OswaldExtraLight, serif;
+    font-size: 1.5em;
+    font-style: italic;
+
   }
 
   blockquote {
@@ -98,8 +105,18 @@
       stroke: #0082C8;
     }
     .ct-series-c .ct-line {
-      stroke: #d8c345;
+      stroke: #f8af00;
     }
+    .ct-series-a .ct-slice-pie {
+      fill: #008ed6;
+    }
+    .ct-series-b .ct-slice-pie {
+      fill: #f05b4f;
+    }
+    .ct-series-c .ct-slice-pie {
+      fill: #f8af00;
+    }
+
     .ct-legend {
       position: relative;
       z-index: 10;
@@ -132,18 +149,39 @@
         top: 0;
         right: 0;
       }
+    }
 
-      & .ct-series-0:before {
-        background-color: #0082C8;
-        border-color: #0082C8;
+    &.line-chart {
+      .ct-legend {
+        & .ct-series-0:before {
+          background-color: #0082C8;
+          border-color: #0082C8;
+        }
+        & .ct-series-1:before {
+          background-color: #f05b4f;
+          border-color: #f05b4f;
+        }
+        & .ct-series-2:before {
+          background-color: #f8af00;
+          border-color: #f8af00;
+        }
       }
-      & .ct-series-1:before {
-        background-color: #f05b4f;
-        border-color: #f05b4f;
-      }
-      & .ct-series-2:before {
-        background-color: #d8c345;
-        border-color: #d8c345;
+    }
+
+    &.pie-chart {
+      .ct-legend {
+        & .ct-series-0:before {
+          background-color: #0082C8;
+          border-color: #0082C8;
+        }
+        & .ct-series-1:before {
+          background-color: #f05b4f;
+          border-color: #f05b4f;
+        }
+        & .ct-series-2:before {
+          background-color: #f8af00;
+          border-color: #f8af00;
+        }
       }
     }
   }
