@@ -60,8 +60,6 @@
   h2 {
     font-family: OswaldExtraLight, serif;
     font-size: 1.5em;
-    font-style: italic;
-
   }
 
   blockquote {
@@ -183,6 +181,18 @@
           border-color: #f8af00;
         }
       }
+    }
+  }
+
+  img.doom-face {
+    padding-top: 50px;
+    width: 100px;
+  }
+
+  ul {
+    list-style: none;
+    li {
+      padding-bottom: 10px;
     }
   }
 }
