@@ -141,7 +141,8 @@
                         'slidechanged': function (event) {
                             var slide = event.currentSlide;
                             var container = slide.getElementsByClassName('chart')[0];
-                            popularity_chart = Chartist.Line(container, {
+                            container.innerHtml = "";
+                            var popularity_chart = Chartist.Line(container, {
                                 series: [
                                     [
                                         {x: new Date("2015-08-09"), y: 62},
@@ -274,7 +275,7 @@
                                 fullWidth: true,
                                 plugins: [
                                     Chartist.plugins.legend({
-                                        legendNames: ['Dart', 'TypeScript', 'JavaScript'],
+                                        legendNames: ['Dart'],
                                     })
                                 ]
                             });
@@ -294,8 +295,11 @@
                         }
                     },
                     'data-chart-popularity-2': {
-                        'fragmentshown': function () {
-                            popularity_chart.update({
+                        'fragmentshown': function (event) {
+                            var slide = event.fragment.parentElement;
+                            var container = slide.getElementsByClassName('chart')[0];
+                            container.innerHtml = "";
+                            var popularity_chart = Chartist.Line(container, {
                                 series: [
                                     [
                                         {x: new Date("2015-08-09"), y: 5},
@@ -519,7 +523,6 @@
                                         {x: new Date("2017-08-27"), y: 96},
                                         {x: new Date("2017-09-03"), y: 87},
                                     ]
-
                                 ]
                             }, {
                                 axisX: {
@@ -537,18 +540,34 @@
                                 chartPadding: 20,
                                 low: 0,
                                 showPoint: false,
-                                fullWidth: true, plugins: [
+                                fullWidth: true,
+                                plugins: [
                                     Chartist.plugins.legend({
-                                        legendNames: ['Dart', 'TypeScript', 'JavaScript'],
+                                        legendNames: ['Dart', 'TypeScript'],
                                     })
                                 ]
-
+                            });
+                            popularity_chart.on('draw', function(data) {
+                                if(data.type === 'line') {
+                                    data.element.animate({
+                                        d: {
+                                            begin: data.index,
+                                            dur: 1000,
+                                            from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+                                            to: data.path.clone().stringify(),
+                                            easing: Chartist.Svg.Easing.easeOutQuint
+                                        }
+                                    });
+                                }
                             });
                         }
                     },
                     'data-chart-popularity-3': {
                         'fragmentshown': function () {
-                            popularity_chart.update({
+                            var slide = event.fragment.parentElement;
+                            var container = slide.getElementsByClassName('chart')[0];
+                            container.innerHtml = "";
+                            var popularity_chart = Chartist.Line(container, {
                                 series: [
                                     [
                                         {x: new Date("2015-08-09"), y: 0},
@@ -772,7 +791,7 @@
                                         {x: new Date("2017-08-27"), y: 4},
                                         {x: new Date("2017-09-03"), y: 4},
                                     ],
-									[
+                                    [
                                         {x: new Date("2015-08-09"), y: 80},
                                         {x: new Date("2015-08-16"), y: 81},
                                         {x: new Date("2015-08-23"), y: 79},
@@ -882,7 +901,7 @@
                                         {x: new Date("2017-08-20"), y: 86},
                                         {x: new Date("2017-08-27"), y: 87},
                                         {x: new Date("2017-09-03"), y: 81},
-									]
+                                    ]
                                 ]
                             }, {
                                 axisX: {
@@ -906,6 +925,19 @@
                                         legendNames: ['Dart', 'TypeScript', 'JavaScript'],
                                     })
                                 ]
+                            });
+                            popularity_chart.on('draw', function(data) {
+                                if(data.type === 'line') {
+                                    data.element.animate({
+                                        d: {
+                                            begin: data.index,
+                                            dur: 1000,
+                                            from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+                                            to: data.path.clone().stringify(),
+                                            easing: Chartist.Svg.Easing.easeOutQuint
+                                        }
+                                    });
+                                }
                             });
                         }
                     }
