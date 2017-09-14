@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/github.css">
 
 		<link rel="stylesheet" href="css/custom.css">
 		<link rel="stylesheet" href="fonts/stylesheet.css">
@@ -41,15 +41,6 @@
 					ссылка на голосование
 				</section>
                 <section>
-                    <section><h2>Дарт - жив?</h2><img src="img/doom-face.gif" class="doom-face"></section>
-                    <section data-chart-live>
-                        <div class="chart pie-chart" style="width: 1000px; height: 600px; font-size:16px"></div>
-                    </section>
-                    <section data-chart-live-2>
-                        <div class="chart pie-chart" style="width: 1000px; height: 600px; font-size:16px"></div>
-                    </section>
-                </section>
-                <section>
                     <section class="stretch">
                         <img src="img/wrike-logo.png" class="plain" style="width: 300px;padding-bottom: 50px"><br>
                         <div class="menu-item fragment" data-fragment-index="0">
@@ -68,6 +59,15 @@
                             <img src="img/skull.gif" class="skull fragment current-visible" data-fragment-index="3">
                             <img src="img/menu/dart.png" class="menu_text">
                         </div>
+                    </section>
+                </section>
+                <section>
+                    <section><h2>Дарт - жив?</h2><img src="img/doom-face.gif" class="doom-face"></section>
+                    <section data-chart-live>
+                        <div class="chart pie-chart" style="width: 1000px; height: 600px; font-size:16px"></div>
+                    </section>
+                    <section data-chart-live-2>
+                        <div class="chart pie-chart" style="width: 1000px; height: 600px; font-size:16px"></div>
                     </section>
                 </section>
                 <!--HYPE-->
@@ -114,10 +114,90 @@
 				</section>
 				<section>
 					<section>
-						<h1 class="title">II : DEMO</h1>
+						<h1 class="title">II : CODE</h1>
 						<h3 class="subtitle">The Shores of Hell</h3>
 						<img src="img/Doom_Baron_of_Hell.gif" style="width: 150px">
 					</section>
+                    <section>
+                        <h2 style="padding-top: 70px; padding-bottom: 30px">Dart 2.0</h2>
+                        <img src="img/Doomguy_render.png">
+
+                    </section>
+                    <section>
+                        <pre><code data-trim data-noescape class="dart">
+                        void fn(List&lt;int&gt; a) {
+                          print(a);
+                        }
+
+                        main() {
+                          var list = [];
+                          list.add(1);
+                          list.add(<span class="fragment highlight-red error" data-fragment-index="0">&quot;2&quot;</span>);<span class="fragment" data-fragment-index="0">//Unsound implicit cast</span>
+                          fn(list);
+                        }
+                        </code></pre>
+                    </section>
+                    <section>
+                        <pre><code data-trim data-noescape class="dart">
+                        void fn(List&lt;int&gt; a) {
+                          print(a);
+                        }
+
+                        main() {
+                          var list = <mark>&lt;int&gt</mark>[];
+                          list.add(1);
+                          list.add(<mark>&quot;2&quot;</mark>);
+                          fn(list);
+                        }
+                        </code></pre>
+                    </section>
+                    <section>
+                        <pre><code data-trim data-noescape class="dart">
+                         main () {
+                          List&lt;dynamic&gt; strings = [&quot;not&quot;, &quot;ints&quot;];
+                          <span class="fragment highlight-red error">List&lt;int&gt; numbers = strings;</span>
+                          for (var number in numbers) {
+                            print(number - 10); // &lt;&mdash; Boom!
+                          }
+                         }
+                        </code></pre>
+                    </section>
+                    <section>
+                        <pre><code data-trim data-noescape class="dart" style=" width: 1500px">
+                        class Animal {}
+
+                        class Dog extends Animal {}
+
+                        class Cat extends Animal {}
+
+                        void main() {
+                          List&lt;Cat&gt; foo = &lt;dynamic&gt;[new Dog()]; // Error
+                          List&lt;dynamic&gt; bar = &lt;dynamic&gt;[new Dog(), new Cat()]; // OK
+                        }
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <pre><code data-trim data-noescape class="dart" style=" width: 1500px">
+                        class Animal {}
+
+                        class Dog extends Animal {}
+
+                        class Cat extends Animal {}
+
+                        void main() {
+                          List&lt;Animal&gt; animals = [new Dog()];
+                          List&lt;Cat&gt; cats = animals; // runtime error
+                        }
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2><img src="img/dart-logo.png" class="lang-embedded"> is production ready</h2>
+                        <div style="height: 200px">
+                            <img src="img/Baron_Of_Hell.gif">
+                        </div>
+                    </section>
 				</section>
 				<section>
 					<section>
@@ -125,6 +205,14 @@
 						<h3 class="subtitle">Inferno</h3>
 						<img src="img/Cacodemon.png" style="width: 150px">
 					</section>
+                    <section class="stretch">
+                        <div class="four-grid">
+                            <div class="one">One</div>
+                            <div class="two">Two</div>
+                            <div class="three">Three</div>
+                            <div class="four">Four</div>
+                        </div>
+                    </section>
 				</section>
 				<section>
 					<section>
