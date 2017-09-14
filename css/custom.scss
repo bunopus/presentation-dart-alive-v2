@@ -31,6 +31,13 @@
       line-height: 35px;
       overflow: hidden;
     }
+
+    &.fullscreen {
+      code {
+        font-size: 35px;
+        line-height: 40px;
+      }
+    }
   }
 
   img.small-logo {

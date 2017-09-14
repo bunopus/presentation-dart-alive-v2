@@ -79,14 +79,14 @@
 					</section>
                         <section>
                             <blockquote>
-                                <img src="img/dart-logo.png" class="lang-embedded"> is an application programming language that’s easy to learn, easy to scale, and deployable everywhere.
+                                <img src="img/dart-logo.png" class="lang-embedded"> is an application programming language that's easy to learn, easy to scale, and deployable everywhere.
 
                                 Google depends on <img src="img/dart-logo.png" class="lang-embedded"> to make very large apps.
                             </blockquote>
                         </section>
                         <section>
                             <blockquote>
-                                <img src="img/ts-logo.jpg" class="lang-embedded"> is an application programming language that’s easy to learn, easy to scale, and deployable everywhere.
+                                <img src="img/ts-logo.jpg" class="lang-embedded"> is an application programming language that's easy to learn, easy to scale, and deployable everywhere.
 
                                 Google depends on <img src="img/ts-logo.jpg" class="lang-embedded"> to make very large apps.
                             </blockquote>
@@ -123,7 +123,8 @@
                         <img src="img/Doomguy_render.png">
 
                     </section>
-                    <section>
+                    <section data-fullscreen>
+                        <h3>Strong Mode Dart</h3>
                         <pre><code data-trim data-noescape class="dart">
                         void fn(List&lt;int&gt; a) {
                           print(a);
@@ -137,7 +138,8 @@
                         }
                         </code></pre>
                     </section>
-                    <section>
+                    <section data-fullscreen>
+                        <h3>Strong Mode Dart</h3>
                         <pre><code data-trim data-noescape class="dart">
                         void fn(List&lt;int&gt; a) {
                           print(a);
@@ -146,12 +148,13 @@
                         main() {
                           var list = <mark>&lt;int&gt</mark>[];
                           list.add(1);
-                          list.add(<mark>&quot;2&quot;</mark>);
+                          list.add(<mark>2</mark>);
                           fn(list);
                         }
                         </code></pre>
                     </section>
-                    <section>
+                    <section data-fullscreen>
+                        <h3>Soundness</h3>
                         <pre><code data-trim data-noescape class="dart">
                          main () {
                           List&lt;dynamic&gt; strings = [&quot;not&quot;, &quot;ints&quot;];
@@ -162,8 +165,9 @@
                          }
                         </code></pre>
                     </section>
-                    <section>
-                        <pre><code data-trim data-noescape class="dart" style=" width: 1500px">
+                    <section data-fullscreen>
+                        <h3>Soundness</h3>
+                        <pre><code data-trim data-noescape class="dart">
                         class Animal {}
 
                         class Dog extends Animal {}
@@ -177,8 +181,9 @@
 
                         </code></pre>
                     </section>
-                    <section>
-                        <pre><code data-trim data-noescape class="dart" style=" width: 1500px">
+                    <section data-fullscreen>
+                        <h3>Runtime checks</h3>
+                        <pre><code data-trim data-noescape class="dart">
                         class Animal {}
 
                         class Dog extends Animal {}
@@ -189,7 +194,13 @@
                           List&lt;Animal&gt; animals = [new Dog()];
                           List&lt;Cat&gt; cats = animals; // runtime error
                         }
-
+                        </code></pre>
+                    </section>
+                    <section data-fullscreen>
+                        <h3>Type inference</h3>
+                        <pre><code data-trim data-noescape class="dart">
+                            <span class="fragment strike">Map&lt;String, dynamic&gt; arguments = {'argA': 'hello', 'argB': 42};</span>
+                            <span class="fragment">var arguments = {'argA': 'hello', 'argB': 42};</span>
                         </code></pre>
                     </section>
                     <section>
@@ -246,7 +257,8 @@
                     {src: 'bower_components/chartist/dist/chartist.min.js'},
 					{src: 'node_modules/chartist-plugin-legend/chartist-plugin-legend.js'},
                     {src: 'bower_components/moment/min/moment.min.js'},
-                    {src: 'plugin/script-runner/script-runner.js'}
+                    {src: 'plugin/script-runner/script-runner.js'},
+                    {src: 'plugin/fullscreen/fullscreen.js'}
 
                 ],
                 transition: 'fade',
