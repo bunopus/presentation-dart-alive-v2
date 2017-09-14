@@ -118,6 +118,39 @@
 						<h3 class="subtitle">The Shores of Hell</h3>
 						<img src="img/Doom_Baron_of_Hell.gif" style="width: 150px">
 					</section>
+                    <section><h2>Story Time</h2></section>
+                    <section data-state="footer-credits">
+                        <img src="img/diagram.png">
+                        <style>.footer-credits footer:after { content: "Icons made by Pixelvisualization from www.flaticon.com is licensed by CC 3.0 BY"; }</style>
+                    </section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="dart">
+                       void persist() {
+                          try {
+                            persistToMongo();
+                            new Future.delayed(new Duration(seconds: 1), persist);
+                          } catch(e) {
+                            // do some logs
+                          }
+                       }
+                        </code></pre>
+                    </section>
+                    <section>
+                        <img src="img/fine_meme.png">
+                    </section>
+                    <section>
+                        <h2><img src="img/dart-logo.png" class="lang-embedded"> is production ready</h2>
+                        <div style="height: 200px">
+                            <img src="img/Baron_Of_Hell.gif">
+                        </div>
+                    </section>
+				</section>
+				<section>
+					<section>
+						<h1 class="title">III : Other</h1>
+						<h3 class="subtitle">Inferno</h3>
+						<img src="img/Cacodemon.png" style="width: 150px">
+					</section>
                     <section>
                         <h2 style="padding-top: 70px; padding-bottom: 30px">Dart 2.0</h2>
                         <img src="img/Doomguy_render.png">
@@ -133,8 +166,8 @@
                         main() {
                           var list = [];
                           list.add(1);
-                          list.add(<span class="fragment highlight-red error" data-fragment-index="0">&quot;2&quot;</span>);<span class="fragment" data-fragment-index="0">//Unsound implicit cast</span>
-                          fn(list);
+                          list.add(&quot;2&quot;);
+                          fn(<span class="fragment highlight-red error" data-fragment-index="0">list</span>);<span class="fragment" data-fragment-index="0">//Unsound implicit cast from List&lt;dynamic&gt; to List&lt;int&gt;</span>
                         }
                         </code></pre>
                     </section>
@@ -203,19 +236,6 @@
                             <span class="fragment">var arguments = {'argA': 'hello', 'argB': 42};</span>
                         </code></pre>
                     </section>
-                    <section>
-                        <h2><img src="img/dart-logo.png" class="lang-embedded"> is production ready</h2>
-                        <div style="height: 200px">
-                            <img src="img/Baron_Of_Hell.gif">
-                        </div>
-                    </section>
-				</section>
-				<section>
-					<section>
-						<h1 class="title">III : Other</h1>
-						<h3 class="subtitle">Inferno</h3>
-						<img src="img/Cacodemon.png" style="width: 150px">
-					</section>
                     <section class="stretch">
                         <div class="four-grid">
                             <div class="one">One</div>
@@ -234,7 +254,8 @@
                     <section data-background-image="img/mars.png"></section>
 				</section>
 			</div>
-		</div>
+            <footer style="position: absolute; left: 50%; margin-left: -265px; bottom: 10px; z-index:500; font-size:20px;"></footer>
+        </div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
