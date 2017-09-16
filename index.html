@@ -30,13 +30,16 @@
 		<div class="reveal">
 			<div class="slides">
                 <section data-background="#FFFFFF"><img src="img/ministry.png"></section>
-				<section><section data-background-image="img/doom-bg.png">
-					<img src="img/logo.png" class="plain">
-                    <audio data-autoplay src="media/doom_ost.mp3"></audio>
+                <section>
+                    <section data-background-image="img/doom-bg.png" data-state="hardcore">
+                        <img src="img/logo.png" class="plain">
+                        <audio data-autoplay src="media/doom_ost.mp3"></audio>
+                    </section>
+                    <section data-background-image="img/doom-bg.png" data-background-transition="none"
+                             data-transition="none">
+                        <img src="img/logo.png" class="plain">
+                    </section>
                 </section>
-                <section data-background-image="img/doom-bg.png" data-background-transition="none" data-transition="none">
-                    <img src="img/logo.png" class="plain">
-                </section></section>
 				<section>
 					ссылка на голосование
 				</section>
@@ -260,7 +263,11 @@
                     <section data-background-image="img/mars.png"></section>
 				</section>
 			</div>
-            <footer style="position: absolute; left: 50%; margin-left: -265px; bottom: 10px; z-index:500; font-size:20px;"></footer>
+            <footer></footer>
+            <div class="hardcore-show">
+                <div class="kunammon"><img src="img/kunammon.png"></div>
+                <div class="fire"></div>
+            </div>
         </div>
 
 		<script src="lib/js/head.min.js"></script>
@@ -285,7 +292,8 @@
 					{src: 'node_modules/chartist-plugin-legend/chartist-plugin-legend.js'},
                     {src: 'bower_components/moment/min/moment.min.js'},
                     {src: 'plugin/script-runner/script-runner.js'},
-                    {src: 'plugin/fullscreen/fullscreen.js'}
+                    {src: 'plugin/fullscreen/fullscreen.js'},
+                    {src: 'lib/js/jquery-3.2.1.min.js'}
 
                 ],
                 transition: 'fade',
@@ -1141,6 +1149,16 @@
                     slide.setAttribute('data-background-size', 'cover');
                 }
             }
+
+            Reveal.addEventListener('slidechanged', function (event) {
+                var attr = event.currentSlide.attributes['data-state'];
+                if(attr && attr.value === 'hardcore') {
+                    $('.hardcore-show').show();
+                } else {
+                    $('.hardcore-show').hide();
+                }
+
+            });
 		</script>
 	</body>
 </html>
