@@ -222,7 +222,17 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    padding-top: 0.7em;
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
 
+      .fragment {
+        position: absolute;
+      }
+    }
     .one {
       grid-column: 1;
       grid-row: 1;
