@@ -211,6 +211,7 @@
 
   ul {
     list-style: none;
+    margin: 0;
     li {
       padding-bottom: 10px;
     }
@@ -300,5 +301,12 @@
     height: 100%;
     background-size: cover;
     background: url(../img/fire.gif) no-repeat center center;
+  }
+
+  a {
+    color: black;
+    &:hover {
+      color: #7c7a84;
+    }
   }
 }
