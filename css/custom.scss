@@ -309,4 +309,17 @@
       color: #7c7a84;
     }
   }
+
+  #doomhead {
+    width: 150px;
+    position: absolute;
+    bottom: 10px;
+    right:  10px;
+    background-color: black;
+    z-index: 500;
+
+    img {
+      width: 150px;
+    }
+  }
 }
