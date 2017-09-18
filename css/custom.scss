@@ -311,15 +311,14 @@
   }
 
   #doomhead {
-    width: 150px;
+    width: 100px;
     position: absolute;
     bottom: 10px;
     right:  10px;
-    background-color: black;
     z-index: 500;
 
     img {
-      width: 150px;
+      width: 100px;
     }
   }
 }
