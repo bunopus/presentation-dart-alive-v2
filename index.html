@@ -337,7 +337,7 @@
                     {src: 'plugin/notes/notes.js', async: true},
                     {
                         src: 'plugin/highlight/highlight.js', async: true, callback: function () {
-                        hljs.initHighlightingOnLoad();
+                            setTimeout(hljs.initHighlightingOnLoad(), 1000);
                     }
                     },
                     {src: 'bower_components/chartist/dist/chartist.min.js'},
@@ -1210,6 +1210,10 @@
                     $('.hardcore-show').hide();
                 }
 
+            });
+
+            Reveal.addEventListener('ready', function () {
+                $('.hardcore-show').hide();
             });
 		</script>
 	</body>
