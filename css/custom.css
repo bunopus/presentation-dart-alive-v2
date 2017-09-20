@@ -215,3 +215,8 @@
     z-index: 500; }
     .reveal #doomhead img {
       width: 100px; }
+  .reveal .head-result #doomhead {
+    position: static;
+    width: 100%; }
+    .reveal .head-result #doomhead img {
+      width: 100px; }
