@@ -208,15 +208,22 @@
     .reveal a:hover {
       color: #7c7a84; }
   .reveal #doomhead {
-    width: 100px;
+    width: 140px;
     position: absolute;
     bottom: 10px;
-    right: 10px;
-    z-index: 500; }
+    right: 0px;
+    z-index: 500;
+    text-align: center; }
     .reveal #doomhead img {
       width: 100px; }
+    .reveal #doomhead .percents {
+      font-size: 0; }
+      .reveal #doomhead .percents img {
+        width: 27px; }
   .reveal .head-result #doomhead {
     position: static;
     width: 100%; }
     .reveal .head-result #doomhead img {
       width: 100px; }
+    .reveal .head-result #doomhead .percents {
+      display: none; }
