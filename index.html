@@ -16,8 +16,10 @@
 		<link rel="stylesheet" href="fonts/stylesheet.css">
 
 		<link rel="stylesheet" href="bower_components/chartist/dist/chartist.min.css">
+        <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
 
-		<!-- Printing and PDF exports -->
+
+        <!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
@@ -29,7 +31,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-                <section data-background="#FFFFFF" data-hide-head><img src="img/ministry.png"></section>
+                <section data-background="#FFFFFF" data-hide-head><img class="fragment" data-duration="2" data-animate="fadeIn" src="img/ministry.png"></section>
                 <section>
                     <section data-background-image="img/doom-bg.png" data-state="hardcore" data-hide-head>
                         <img src="img/logo.png" class="plain">
@@ -365,7 +367,8 @@
                     {src: 'plugin/script-runner/script-runner.js'},
                     {src: 'plugin/fullscreen/fullscreen.js'},
                     {src: 'lib/js/jquery-3.2.1.min.js'},
-                    {src: 'lib/js/headmeter.js'}
+                    {src: 'lib/js/headmeter.js'},
+                    {src: 'js/animations.js'}
 
                 ],
                 transition: 'fade',
