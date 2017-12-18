@@ -33,3 +33,5 @@
     font-family: "OswaldSemiBold";
     src: url('Oswald/Oswald-SemiBold.ttf') format("truetype");
 }
+
+@font-face { font-family: Menlo; src: url('./Menlo-Regular.ttf'); }
