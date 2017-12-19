@@ -23,6 +23,8 @@
     line-height: 35px;
     overflow: hidden;
     font-family: Menlo, monospace; }
+    .reveal section code span.grayed, .reveal section code span.grayed .hljs-title, .reveal section code span.grayed .hljs-keyword, .reveal section code span.grayed .hljs-string {
+      color: gray !important; }
   .reveal section.fullscreen code {
     font-size: 35px;
     line-height: 40px; }

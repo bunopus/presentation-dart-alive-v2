@@ -137,6 +137,82 @@
 						<h3 class="subtitle">The Shores of Hell</h3>
 						<img src="img/Doom_Baron_of_Hell.gif" style="width: 150px">
 					</section>
+                    <section>
+                        <h2>Tree Shaking</h2>
+                    </section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="dart">
+<span class="fragment">import 'dart:collection';</span>
+
+void main() {
+
+}
+                        </code></pre>
+                    </section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="dart">
+<span class="grayed">import 'dart:collection';</span>
+
+void main() {
+
+}
+                        </code></pre>
+                    </section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="dart">
+<span class="grayed">import 'dart:collection';
+
+void main() {
+
+}</span>
+                        </code></pre>
+                    </section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="dart">
+class DoomGuy {
+}
+
+void main() {
+  var guy = new DoomGuy();
+}
+
+                        </code></pre>
+                    </section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="dart">
+<span class="grayed">class DoomGuy {
+}
+
+void main() {
+  var guy = new DoomGuy();
+}</span>
+                        </code></pre>
+                    </section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="dart">
+class DoomGuy {
+  void saySomething() => "Hello, MTFKR";
+}
+
+void main() {
+  var guy = new DoomGuy();
+  guy.saySomething();
+}
+                        </code></pre>
+                    </section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="js">
+  <span class="grayed">
+  //...
+  }], ["", "main.dart",, F, {
+    "^": "",</span>
+    main: function() {
+      H.printString("Hello, MTFKR");
+    }
+  <span class="grayed">}, 1]];</span>
+  //...
+                        </code></pre>
+                    </section>
                     <section><h2>Story Time</h2></section>
                     <section data-state="footer-credits">
                         <img src="img/diagram.png">
