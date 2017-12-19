@@ -1212,6 +1212,18 @@
                             });
                         }
                     }
+                },
+                // Logitech Spotlight sends 'arrow right' key code for nex slide
+                // So it's just navigating right in reveal default bindings
+                // Remap right arrow to next slide and use shift for arrows
+                keyboard: {
+                    //Arrows navigation works only with Shift
+                    74: 'navigateLeft',
+                    76: 'navigateRight',
+                    73: 'navigateUp',
+                    75: 'navigateDown',
+                    39: 'navigateNext',
+                    37: 'navigatePrev'
                 }
             });
 
@@ -1249,8 +1261,6 @@
                         doomHead.showText(true);
                     }
                 }
-
-
             });
 
             Reveal.addEventListener('ready', function () {
