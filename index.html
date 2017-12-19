@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/github.css">
+		<link rel="stylesheet" href="lib/css/github-gist.css">
 
 		<link rel="stylesheet" href="css/custom.css">
 		<link rel="stylesheet" href="fonts/stylesheet.css">
@@ -175,6 +175,21 @@
                         <img src="img/Doomguy_render.png">
 
                     </section>
+                    <section>
+                        <h2>Dart type systems</h2>
+                        <div class="fragment">
+                            Classic Mode
+                            <pre><code class="hljs lang-yaml">analyzer:
+  strong-mode: false</code></pre>
+                        </div>
+                        <div class="fragment">
+                            Strong Mode
+                            <pre><code class="hljs lang-yaml">analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false</code></pre>
+                        </div>
+                    </section>
                     <section data-fullscreen>
                         <h3>Strong Mode Dart</h3>
                         <pre><code data-trim data-noescape class="dart">
@@ -220,15 +235,15 @@
                     <section data-fullscreen>
                         <h3>Soundness</h3>
                         <pre><code data-trim data-noescape class="dart">
-                        class Animal {}
+                        class Demon {}
 
-                        class Dog extends Animal {}
+                        class Mastermind extends Demon {}
 
-                        class Cat extends Animal {}
+                        class Cyberdemon extends Demon {}
 
                         void main() {
-                          List&lt;Cat&gt; foo = &lt;dynamic&gt;[new Dog()]; // Error
-                          List&lt;dynamic&gt; bar = &lt;dynamic&gt;[new Dog(), new Cat()]; // OK
+                          List&lt;Cyberdemon&gt; foo = &lt;dynamic&gt;[new Mastermind()]; // Error
+                          List&lt;dynamic&gt; bar = &lt;dynamic&gt;[new Cyberdemon(), new Mastermind()]; // OK
                         }
 
                         </code></pre>
@@ -236,15 +251,15 @@
                     <section data-fullscreen>
                         <h3>Runtime checks</h3>
                         <pre><code data-trim data-noescape class="dart">
-                        class Animal {}
+                        class Demon {}
 
-                        class Dog extends Animal {}
+                        class Mastermind extends Demon {}
 
-                        class Cat extends Animal {}
+                        class Cyberdemon extends Demon {}
 
                         void main() {
-                          List&lt;Animal&gt; animals = [new Dog()];
-                          List&lt;Cat&gt; cats = animals; // runtime error
+                          List&lt;Demon&gt; demons = [new Mastermind()];
+                          List&lt;Cyberdemon&gt; cybers = demons; // runtime error
                         }
                         </code></pre>
                     </section>
