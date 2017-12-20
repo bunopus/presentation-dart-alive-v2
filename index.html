@@ -74,7 +74,7 @@
                 </section>
                 <section data-hide-head>
                     <img src="img/qr_code.jpg" style="width: 400px">
-                    <h2>http://bit.ly/dart-alive</h2>
+                    <h2 style="text-transform: none">bit.ly/dart-alive</h2>
                 </section>
                 <section>
                     <p><img src="img/dart-logo.png" class="lang-embedded"></p>
@@ -137,6 +137,7 @@
 						<h3 class="subtitle">The Shores of Hell</h3>
 						<img src="img/Doom_Baron_of_Hell.gif" style="width: 150px">
 					</section>
+                    <section><h2>Frontend</h2></section>
                     <section>
                         <h2>Tree Shaking</h2>
                     </section>
@@ -213,6 +214,58 @@ void main() {
   //...
                         </code></pre>
                     </section>
+                    <section><h2>JS Interop</h2></section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="dart">
+// Calls invoke JavaScript `JSON.stringify(obj)`.
+@JS("JSON.stringify")
+external String stringify(obj);
+                        </code></pre>
+                    </section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="dart">
+@JS('google.maps')
+library maps;
+
+import "package:js/js.dart";
+
+<span class="fragment">// Invokes the JavaScript getter `google.maps.map`.
+external Map get map;
+</span>
+<span class="fragment">// `new Map` invokes JavaScript `new google.maps.Map(location)`
+@JS()
+class Map {
+  external Map(Location location);
+  external Location getLocation();
+}</span>
+                        </code></pre>
+                    </section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="js">
+// JavaScript
+printOptions({responsive: true});
+                        </code></pre>
+                    </section>
+                    <section data-fullscreen>
+                        <pre><code data-trim data-noescape class="dart">
+// Dart
+void main() {
+  printOptions(new Options(responsive: true));
+}
+<span class="fragment">
+@JS()
+external printOptions(Options options);
+</span>
+<span class="fragment">@JS()
+@anonymous
+class Options {
+  external bool get responsive;
+
+  external factory Options({bool responsive});
+}</span>
+                        </code></pre>
+                    </section>
+                    <section><h4>https://github.com/dart-lang/js_facade_gen</h4></section>
                     <section><h2>Story Time</h2></section>
                     <section data-state="footer-credits">
                         <img src="img/diagram.png">
